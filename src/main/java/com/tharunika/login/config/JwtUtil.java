@@ -8,14 +8,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
-import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
 @Component
-public class jwtUtil {
+public class JwtUtil {
     @Value("${jwt.secret}")
     private String secret;
     @Value("${jwt.expiration}")
@@ -70,9 +69,5 @@ public class jwtUtil {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
-
-
-
-
 
 }
